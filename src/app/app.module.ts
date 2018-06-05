@@ -12,6 +12,7 @@ import {RouterModule} from '@angular/router';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FormsModule } from '@angular/forms';
+import { SharingService } from './services/sharing.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { FormsModule } from '@angular/forms';
     ],{useHash:true}),
     MDBBootstrapModule.forRoot()
   ],
-  providers: [CountryService],
+  providers: [CountryService,SharingService],
   bootstrap: [AppComponent],
   schemas:[NO_ERRORS_SCHEMA]
 })

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import { CountryService, ICountry,IData } from 'src/app/services/country.services';
+import { SharingService } from 'src/app/services/sharing.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-find-by-prefix',
@@ -13,8 +15,9 @@ export class FindByPrefixComponent implements OnInit {
   result:ICountry;
   data:IData[];
   inCountry:string;
-  selectedCountry:string;
-  constructor(private svc:CountryService)
+  
+  
+  constructor(private svc:CountryService, private dataSharing:SharingService,private router:Router)
   {  
 
   }
@@ -38,7 +41,8 @@ export class FindByPrefixComponent implements OnInit {
   }
   public OnSelect(countryCode:string)
   {
-    this.selectedCountry = countryCode;
+    this.dataSharing.changeData(countryCode);
+    this.router.navigateByUrl("/CountryDetail");
   }
 
 }
