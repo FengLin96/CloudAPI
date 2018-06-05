@@ -1,3 +1,26 @@
-<p>
-  country-detail works!
-</p>
+<div class="container">
+    <div class="row">
+     
+      <div class="col">
+      </div>
+      
+      <div class="col-6">
+        
+        <div class="md-form">
+          <input mdbInputDirective type="text" name="text" [(ngModel)]="inCountry" id="form1" class="form-control">
+          <label for="form1" class="">Country ID</label>
+        </div>
+        <br>
+        <button type="button" class="btn btn-outline-primary" mdbWavesEffect (click)="FindCountry(inCountry)">Find</button>
+        
+      </div>
+      
+      <div class="col">
+      </div>
+      
+    </div>
+    
+  </div>
+  
+  
+  

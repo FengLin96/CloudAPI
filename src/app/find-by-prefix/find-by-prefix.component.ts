@@ -13,6 +13,7 @@ export class FindByPrefixComponent implements OnInit {
   result:ICountry;
   data:IData[];
   inCountry:string;
+  selectedCountry:string;
   constructor(private svc:CountryService)
   {  
 
@@ -35,6 +36,9 @@ export class FindByPrefixComponent implements OnInit {
     })
    
   }
-  
+  public OnSelect(countryCode:string)
+  {
+    this.selectedCountry = countryCode;
+  }
 
 }
