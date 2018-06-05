@@ -19,6 +19,22 @@ export class CountryService {
        return this.http.get<ICountry>(url,{headers:headers});      
     }
 
+    getCountryWithParam(contryPrefix:string,offset:number):Observable<ICountry>{
+      var url =  `https://wft-geo-db.p.mashape.com/v1/geo/countries?offset=${offset}&limit=5&namePrefix=${contryPrefix}`;
+      const headers = new HttpHeaders()    
+      .set("X-Mashape-Key", "w4stvsB6yJmsheFu7OIQao5B4WyPp1QPsaTjsnFX7Iytb2Pyuw")
+      .set("X-Mashape-Host", "wft-geo-db.p.mashape.com");
+      return this.http.get<ICountry>(url,{headers:headers});      
+   }
+
+   getCountryWithLink(url:string):Observable<ICountry>{
+
+    const headers = new HttpHeaders()    
+    .set("X-Mashape-Key", "w4stvsB6yJmsheFu7OIQao5B4WyPp1QPsaTjsnFX7Iytb2Pyuw")
+    .set("X-Mashape-Host", "wft-geo-db.p.mashape.com");
+    return this.http.get<ICountry>(url,{headers:headers});      
+ }
+
     getCountryDetail(countryID:string):Observable<IRootObjDetail>{
       var url =  `https://wft-geo-db.p.mashape.com/v1/geo/countries/${countryID}`;
       // console.log(url);
@@ -36,15 +52,15 @@ export class CountryService {
 
 export interface ICountry {
   data: IData[];
-  links: Link[];
-  metadata: IMetadata;
+  links: ILink[];
+  metadata: IPaging;
 }
 
-export interface IMetadata {
+export interface IPaging {
   currentOffset: number;
   totalCount: number;
 }
-export interface Link {
+export interface ILink {
   rel: string;
   href: string;
 }
