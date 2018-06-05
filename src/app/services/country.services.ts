@@ -21,18 +21,18 @@ export class CountryService {
 }
 
 export interface ICountry {
-    data: Data[];
-    metadata: Metadata;
-  }
-  
-export interface Metadata {
-    currentOffset: number;
-    totalCount: number;
-  }
-  
-export interface Data {
-    code: string;
-    currencyCodes: string[];
-    name: string;
-    wikiDataId: string;
-  }
+  data: IData[];
+  metadata: IMetadata;
+}
+
+export interface IMetadata {
+  currentOffset: number;
+  totalCount: number;
+}
+
+export interface IData {
+  code: string;
+  currencyCodes: string[];
+  name: string;
+  wikiDataId: string;
+}

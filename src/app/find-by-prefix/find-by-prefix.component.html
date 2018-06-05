@@ -1,3 +1,41 @@
-<p>
-  find-by-prefix works!
-</p>
+<div class="container">
+  <div class="row">
+   
+    <div class="col">
+    </div>
+    
+    <div class="col-6">
+      
+      <div class="md-form">
+        <input mdbInputDirective type="text" name="text" [(ngModel)]="inCountry" id="form1" class="form-control">
+        <label for="form1" class="">Find country by name or prefix</label>
+      </div>
+      <br>
+      <button type="button" class="btn btn-outline-primary" mdbWavesEffect (click)="FindCountry(inCountry)">Find</button>
+      
+      <div *ngIf = "result">
+        <div *ngIf = "data">
+          <div *ngFor = "let country of data">
+            
+            <H3>Code: {{country.code}}</H3>
+            <br>
+            <h3>CurrencyCodes: {{country.currencyCodes}}</h3>
+            <br>
+            <h3>name: {{country.name}}</h3>
+            <br>
+            <h3>wikiDataID: {{country.wikiDataId}}</h3>
+            <br>   
+          </div> 
+        </div>
+        <br>
+      </div>
+    </div>
+    
+    <div class="col">
+    </div>
+    
+  </div>
+  
+</div>
+
+

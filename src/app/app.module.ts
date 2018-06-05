@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,10 +26,11 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot([
-      {path:"Home",component:AppComponent},
-      {path:"FindById",component:FindByIdComponent},
+      {path:"Home",component:HomeComponent},
       {path:"FindByPrefix",component:FindByPrefixComponent},
+      {path:"FindById",component:FindByIdComponent},
       { path: '', redirectTo: 'Home', pathMatch: 'full'},
       { path: "**", component: AppComponent}
     ],{useHash:true}),
