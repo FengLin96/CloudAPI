@@ -32,16 +32,16 @@ export class FindByPrefixComponent implements OnInit {
     .subscribe(res=>{
      this.result = res;
      this.data = this.result.data;
-     console.log(this.data[0].code);
-     console.log(this.data[0].currencyCodes);
-     console.log(this.data[0].name);
-     console.log(this.data[0].wikiDataId);
+    //  console.log(this.data[0].code);
+    //  console.log(this.data[0].currencyCodes);
+    //  console.log(this.data[0].name);
+    //  console.log(this.data[0].wikiDataId);
     })
    
   }
   public OnSelect(countryCode:string)
   {
-    this.dataSharing.changeData(countryCode);
+     this.dataSharing.changeData(countryCode);
     this.router.navigateByUrl("/CountryDetail");
   }
 

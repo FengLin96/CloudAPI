@@ -5,7 +5,7 @@ import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 @Injectable()
 export class SharingService{
 
-    private dataSource = new BehaviorSubject('default message');
+    private dataSource = new BehaviorSubject('no');
     currentData = this.dataSource.asObservable();
     constructor(){}
 

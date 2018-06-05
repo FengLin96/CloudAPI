@@ -19,14 +19,15 @@ export class CountryService {
        return this.http.get<ICountry>(url,{headers:headers});      
     }
 
-    getCountryDetail(countryID:string):Observable<ICountry>{
+    getCountryDetail(countryID:string):Observable<IRootObjDetail>{
       var url =  `https://wft-geo-db.p.mashape.com/v1/geo/countries/${countryID}`;
+      // console.log(url);
       const headers = new HttpHeaders()    
       .set("X-Mashape-Key", "w4stvsB6yJmsheFu7OIQao5B4WyPp1QPsaTjsnFX7Iytb2Pyuw")
       .set("X-Mashape-Host", "wft-geo-db.p.mashape.com");
 
 
-      return this.http.get<ICountry>(url,{headers:headers}); 
+      return this.http.get<IRootObjDetail>(url,{headers:headers}); 
     
     }
 }
@@ -49,7 +50,12 @@ export interface IData {
   name: string;
   wikiDataId: string;
 }
-export interface ICoutnryDetail {
+
+export interface IRootObjDetail{
+  data:ICountryDetail;
+}
+
+export interface ICountryDetail {
   code: string;
   currencyCodes: string[];
   flagImageUri: string;

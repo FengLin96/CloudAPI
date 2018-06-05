@@ -7,12 +7,35 @@
       <div class="col-6">
         
         <div class="md-form">
-          <input mdbInputDirective type="text" name="text" [(ngModel)]="inCountry" id="form1" class="form-control">
+          <input mdbInputDirective type="text" name="text" [(ngModel)]="inCountryID" id="form1" class="form-control">
           <label for="form1" class="">Country ID</label>
         </div>
         <br>
-        <button type="button" class="btn btn-outline-primary" mdbWavesEffect (click)="FindCountry(inCountry)">Find</button>
+        <button type="button" class="btn btn-outline-primary" mdbWavesEffect (click)="getCountryDetail(inCountryID)">Find</button>
         
+        <br>
+
+        <!-- Card -->
+        <div class="card" *ngIf="result">
+
+            <!-- Card image -->
+            <img class="card-img-top" src={{countryDetail.flagImageUri}} alt="Card image cap">
+          
+            <!-- Card content -->
+            <div class="card-body">
+          
+              <!-- Title -->
+              <h4 class="card-title">{{countryDetail.name}}</h4>
+              <!-- Text -->
+              <p class="card-text">code: {{countryDetail.code}}</p>
+              <p class="card-text">CurrencyCodes: {{countryDetail.currencyCodes}}</p>
+              <p class="card-text">numRegions: {{countryDetail.numRegions}}</p>
+              <p class="card-text">wikiDataID: {{countryDetail.wikiDataId}}</p>
+            </div>
+          
+          </div>
+          <!-- Card -->
+
       </div>
       
       <div class="col">
