@@ -7,6 +7,9 @@ import { CountryDetailComponent } from './country-detail/country-detail.componen
 import { FindByIdComponent } from './find-by-id/find-by-id.component';
 import { FindByPrefixComponent } from './find-by-prefix/find-by-prefix.component';
 import { HomeComponent } from './home/home.component';
+import { CountryService } from './services/country.services';
+import { HttpClientModule } from '@angular/common/http';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -18,9 +21,17 @@ import { HomeComponent } from './home/home.component';
     HomeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    RouterModule.forRoot([
+      {path:"Home",component:AppComponent},
+      {path:"FindById",component:FindByIdComponent},
+      {path:"FindByPrefix",component:FindByPrefixComponent},
+      { path: '', redirectTo: 'Home', pathMatch: 'full'},
+      { path: "**", component: AppComponent}
+    ],{useHash:true})
   ],
-  providers: [],
+  providers: [CountryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
