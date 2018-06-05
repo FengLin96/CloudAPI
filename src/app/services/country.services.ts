@@ -36,6 +36,7 @@ export class CountryService {
 
 export interface ICountry {
   data: IData[];
+  links: Link[];
   metadata: IMetadata;
 }
 
@@ -43,7 +44,10 @@ export interface IMetadata {
   currentOffset: number;
   totalCount: number;
 }
-
+export interface Link {
+  rel: string;
+  href: string;
+}
 export interface IData {
   code: string;
   currencyCodes: string[];
