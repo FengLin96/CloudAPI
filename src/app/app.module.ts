@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { CountryService } from './services/country.services';
 import { HttpClientModule } from '@angular/common/http';
 import {RouterModule} from '@angular/router';
+
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -29,9 +31,11 @@ import {RouterModule} from '@angular/router';
       {path:"FindByPrefix",component:FindByPrefixComponent},
       { path: '', redirectTo: 'Home', pathMatch: 'full'},
       { path: "**", component: AppComponent}
-    ],{useHash:true})
+    ],{useHash:true}),
+    MDBBootstrapModule.forRoot()
   ],
   providers: [CountryService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas:[NO_ERRORS_SCHEMA]
 })
 export class AppModule { }
