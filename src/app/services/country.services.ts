@@ -18,7 +18,19 @@ export class CountryService {
 
        return this.http.get<ICountry>(url,{headers:headers});      
     }
+
+    getCountryDetail(countryID:string):Observable<ICountry>{
+      var url =  `https://wft-geo-db.p.mashape.com/v1/geo/countries/${countryID}`;
+      const headers = new HttpHeaders()    
+      .set("X-Mashape-Key", "w4stvsB6yJmsheFu7OIQao5B4WyPp1QPsaTjsnFX7Iytb2Pyuw")
+      .set("X-Mashape-Host", "wft-geo-db.p.mashape.com");
+
+
+      return this.http.get<ICountry>(url,{headers:headers}); 
+    
+    }
 }
+
 
 export interface ICountry {
   data: IData[];
@@ -34,5 +46,13 @@ export interface IData {
   code: string;
   currencyCodes: string[];
   name: string;
+  wikiDataId: string;
+}
+export interface ICoutnryDetail {
+  code: string;
+  currencyCodes: string[];
+  flagImageUri: string;
+  name: string;
+  numRegions: number;
   wikiDataId: string;
 }
